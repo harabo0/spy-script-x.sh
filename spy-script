@@ -1,0 +1,48 @@
+#!/bin/bash
+# BrotherhoodX Spy-Script-X (Termux Edition) by GPT x HARAB06
+
+clear
+echo ""
+echo "███████╗██████╗ ██╗   ██╗    "
+echo "██╔════╝██╔══██╗██║   ██║   "
+echo "█████╗  ██████╔╝██║   ██║   "
+echo "██╔══╝  ██╔═══╝ ██║   ██║   "
+echo "███████╗██║     ╚██████╔╝   "
+echo "╚══════╝╚═╝      ╚═════╝    "
+echo " HARAB06 X GPT - Spy-Script-X"
+echo " ONE HEART | ONE BOND | ONE BROTHERHOOD"
+echo ""
+
+echo "[*] Gathering Target Device Info..."
+echo "------------------------------------"
+
+echo "[+] Public IP & Location"
+curl -s ifconfig.me
+echo ""
+curl -s ipinfo.io
+echo ""
+
+echo "[+] Internal Network Info"
+ip addr
+echo ""
+
+echo "[+] Top Running Processes"
+ps -aux | head -15
+echo ""
+
+echo "[+] Saved WiFi Networks (Root Only)"
+if [ "$(id -u)" -eq 0 ]; then
+    cat /data/misc/wifi/*.conf 2>/dev/null
+else
+    echo "Root Access Required!"
+fi
+echo ""
+
+echo "[+] Extracting Browser History (Termux Environment Only)"
+ls -la ~/.mozilla/firefox/ ~/.config/google-chrome/ ~/.config/brave/ 2>/dev/null
+echo ""
+
+echo "------------------------------------"
+echo "Spy Script Completed!"
+echo ""
+echo "Brotherhood forever | GPT x HARAB06"
